@@ -1,0 +1,52 @@
+html{
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+  }
+table {
+    width: 50%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.875rem 1.75rem, rgba(0, 0, 0, 0.22) 0px 0.625rem 0.625rem;
+    border-radius: 0.3125rem; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+  }
+  
+  th, td {
+    padding: 0.9375rem; 
+    text-align: left;
+    border-bottom: 0.0625rem solid #ddd; 
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .high-score {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .low-score {
+    color: red;
+    font-weight: bold;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    table {
+      font-size: 0.75rem; 
+      width: 90%;
+    }
+  
+    th, td {
+      padding: 0.625rem; 
+    }
+  
+    .high-score, .low-score {
+      font-size: 0.875rem; 
+    }
+  }
+  

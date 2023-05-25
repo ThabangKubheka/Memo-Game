@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scores Table</title>
+  <link rel="stylesheet" href="../css/leaderBoard.css" />
+</head>
+<body>
+  <iframe
+      src="../components/navbar.html"
+      frameborder="0"
+      width="100%"
+      height="85"
+    ></iframe>
+  <section class="container">
+    <h1>The LearderBoard</h1>
+  </section>
+  <section class="container">
+  <table id="scores-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>User</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody id="scores-table-body"></tbody>
+  </table>
+
+</section>
+</body>
+
+  <script>
+    fetch("http://localhost:3000/ola")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        
+        const tableBody = document.getElementById("scores-table-body");
+
+        data.forEach((scoreValue, index) => {
+          const { player_email, score } = scoreValue;
+
+          const newRow = document.createElement("tr");
+
+          const rankCell = document.createElement("td");
+          rankCell.textContent = index + 1; 
+          const userCell = document.createElement("td");
+          userCell.textContent = player_email;
+          const scoreCell = document.createElement("td");
+          scoreCell.textContent = score;
+
+          newRow.appendChild(rankCell);
+          newRow.appendChild(userCell);
+          newRow.appendChild(scoreCell);
+
+          tableBody.appendChild(newRow);
+        });
+      })
+      .catch(error => {
+        console.error("Error fetching scores:", error);
+      });
+
+      const home = () => {
+        window.location.href = '../pages/start.html';
+      };
+generateGame();
+  </script>
+</body>
+</html>

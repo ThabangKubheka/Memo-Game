@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game with JavaScript</title>
+    <link rel="stylesheet" href="../css/game.css">
+    <script src="../js/game.js" defer></script>
+</head>
+<body>
+    <section class="game">
+        <section class="controls">
+            <section class="stats">
+                <section class="moves">0 moves</section>
+                <section class="timer">Time: 0 sec</section>
+            </section>
+            
+        </section>
+        <section class="board-container">
+            <section class="board" data-dimension="4"></section>
+            <section class="win">You won!</section>
+            <section class="score">Score: 0</section>
+        </section>
+        <section class="buttons">
+        <button>Start</button>
+        <button class="reset" onclick="scores()">Leaderboard</button>
+    </section>
+    </section>
+</body>
+</html>

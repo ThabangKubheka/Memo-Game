@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="../css/signup.css" />
+  </head>
+  <body>
+    <section class="container">
+      <section class="form-box">
+        <h1 class="title">Login</h1>
+        <section id="errorMsg"></section>
+        <form id="loginForm" class="signup" name="signupForm" method="POST">
+          <section class="input-group">
+            <section class="input-field">
+              <input
+                id="email"
+                class="input"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+              />
+            </section>
+
+            <section class="input-field">
+              <input
+                id="password"
+                class="input"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </section>
+          </section>
+
+          <section class="btn-group">
+            <button class="button login-btn" type="submit">Login</button>
+          </section>
+
+          <section id="loginStatus"></section>
+
+          <p class="link">
+            New here
+            <a href="../pages/SignUp.html">Click Here!</a>
+          </p>
+        </form>
+      </section>
+    </section>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          if (validateForm()) {
+            try {
+              const response = await fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams({
+                  email: email,
+                  password: password,
+                }),
+              });
+
+              const result = await response.text();
+              document.getElementById("loginStatus").textContent = result;
+              console.log(result);
+
+              if (result === "Login successful") {
+                localStorage.setItem("userEmail", email);
+                window.location.href = '../pages/start.html';
+              }
+            } catch (error) {
+              console.error("An error occurred:", error);
+            }
+          }
+        });
+
+      function validateForm() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const errorMsg = document.getElementById("errorMsg");
+
+        errorMsg.textContent = "";
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          errorMsg.textContent = "Please enter a valid email address.";
+          return false;
+        }
+
+        if (password.trim() === "") {
+          errorMsg.textContent = "Please enter a password.";
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

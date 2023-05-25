@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-box {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 400px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  display: flex;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.input-field i {
+  color: #aaa;
+  margin-right: 10px;
+}
+
+.input-field input {
+  border: none;
+  flex: 1;
+  font-size: 16px;
+  outline: none;
+}
+
+.link {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.link a {
+  color: #666;
+  text-decoration: none;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background-color: #796a96;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #3e8e41;
+}
+
+.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background-color: #ccc;
+}
+
+#loginStatus {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#errorMsg {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: red;
+}
